@@ -1,22 +1,22 @@
 package ru.job4j.max;
 
 public class Reduce {
-    private int[] arrays;
+    private int[] array;
 
     public void to(int[] array) {
-        arrays = array;
+        this.array = array;
     }
 
     public void print() {
-        for (int index = 0; index < arrays.length; index++) {
-            System.out.println(arrays[index]);
+        for (int index = 0; index < array.length; index++) {
+            System.out.println(array[index]);
         }
     }
 
     public static void main(String[] args) {
-        int[] arrays = {1, 2, 3};
+        int[] array = {1, 2, 3};
         Reduce reduce = new Reduce();
-        reduce.to(arrays);
+        reduce.to(array);
         reduce.print();
     }
 }
