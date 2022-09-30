@@ -1,5 +1,4 @@
 package ru.job4j.inheritance;
-
 public class JSONReport extends TextReport {
     String ln = System.lineSeparator();
 
