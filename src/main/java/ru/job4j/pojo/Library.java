@@ -14,13 +14,19 @@ public class Library {
         books[3] = book4;
         for (Book lib : books) {
             System.out.println("\"" + lib.getName() + "\"" + " кол-во страниц: " + lib.getPageCount());
-            }
+        }
         System.out.println("");
         Book temp = books[3];
         books[3] = books[0];
         books[0] = temp;
         for (Book lib : books) {
             System.out.println("\"" + lib.getName() + "\"" + " кол-во страниц: " + lib.getPageCount());
+        }
+        System.out.println("");
+        for (Book lib : books) {
+            if (lib.getName().equals("Clean code")) {
+                System.out.println("\"" + lib.getName() + "\"" + " кол-во страниц: " + lib.getPageCount());
+            }
         }
     }
 }
