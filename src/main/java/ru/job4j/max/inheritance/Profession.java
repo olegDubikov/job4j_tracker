@@ -1,4 +1,4 @@
-package ru.job4j.inheritance;
+package ru.job4j.max.inheritance;
 
 public class Profession {
     private boolean degree;
