@@ -10,15 +10,9 @@ public class MagicBall {
         String question = input.nextLine();
         int answer = new Random().nextInt(3);
         switch (answer) {
-            case 0:
-                System.out.println(question + " Yes");
-                break;
-            case 1:
-                System.out.println(question + " No");
-                break;
-            default:
-                System.out.println(question + " Maybe");
-                break;
+            case 1 -> System.out.println(question + " Yes");
+            case 2 -> System.out.println(question + " No");
+            default -> System.out.println(question + " Maybe");
         }
     }
 }
