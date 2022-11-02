@@ -22,17 +22,14 @@ public final class Airbus extends Aircraft {
         System.out.println("Модель самолета: " + name);
     }
 
-    public  void printCountEngine() {
+    public void printCountEngine() {
         System.out.println(
-                getName().equals("A380") ? "Количество двигателей равно: 4" :
-                        "Количество двигателей равно: " + COUNT_ENGINE
-        );
+                getName().equals("A380") ?
+                        "Количество двигателей равно: 4" : "Количество двигателей равно: " + COUNT_ENGINE);
     }
 
     @Override
     public String toString() {
-        return "Airbus{"
-                + "name='" + name + '\''
-                + '}';
+        return "Airbus{" + "name='" + name + '\'' + '}';
     }
 }
