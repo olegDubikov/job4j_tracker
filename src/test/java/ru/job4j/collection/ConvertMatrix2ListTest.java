@@ -1,6 +1,7 @@
-package ru.job4j.list;
+package ru.job4j.collection;
 
 import org.junit.jupiter.api.Test;
+
 
 import java.util.Arrays;
 import java.util.List;
