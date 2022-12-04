@@ -10,8 +10,8 @@ import java.util.Map;
  * Добавляет и удаляет пользователя,
  * открывает счет, позволяет переводить
  * деньги с одного счета на другой.
- * @ author Oleg Dubikov
- * @ 1.0
+ * @author Oleg Dubikov
+ * @version 1.0
  */
 public class BankService {
     /**
