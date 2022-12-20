@@ -28,7 +28,5 @@ public class FunctionalInterfaces {
         for (String s : sup.get()) {
             con.accept(func.apply(s));
         }
-        con.accept(sup.get().toString());
-        System.out.println(func.apply(sup.get().toString()));
     }
 }
