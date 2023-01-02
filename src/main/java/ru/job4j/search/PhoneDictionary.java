@@ -25,9 +25,3 @@ public class PhoneDictionary {
         return result;
     }
 }
-/*
-                    rsl.getName().contains(key)
-                    || rsl.getSurname().contains(key)
-                    || rsl.getPhone().contains(key)
-                    || rsl.getAddress().contains(key))
- */
