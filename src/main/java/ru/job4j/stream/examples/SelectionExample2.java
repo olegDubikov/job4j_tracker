@@ -1,16 +1,16 @@
-package ru.job4j.stream;
+package ru.job4j.stream.examples;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class SelectionExample4 {
+public class SelectionExample2 {
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("Один", "Два", "Три", "Четыре", "Пять");
-        String rsl = strings
+        List<String> rsl = strings
                 .stream()
-                .skip(5)
-                .findFirst()
-                .orElse("По умолчанию");
+                .skip(2)
+                .limit(2)
+                .toList();
         System.out.println(rsl);
     }
 }

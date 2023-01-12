@@ -1,4 +1,4 @@
-package ru.job4j.stream;
+package ru.job4j.stream.examples;
 
 import java.util.Arrays;
 import java.util.List;
