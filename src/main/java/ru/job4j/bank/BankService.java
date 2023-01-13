@@ -10,6 +10,7 @@ import java.util.Map;
  * Добавляет и удаляет пользователя,
  * открывает счет, позволяет переводить
  * деньги с одного счета на другой.
+ *
  * @author Oleg Dubikov
  * @version 1.0
  */
@@ -21,6 +22,7 @@ public class BankService {
 
     /**
      * Метод добавляет нового пользователя в банк-сервис.
+     *
      * @param user Принимает данные пользователя.
      */
     public void addUser(User user) {
@@ -29,6 +31,7 @@ public class BankService {
 
     /**
      * Метод  удаляет пользователя из сервиса.
+     *
      * @param passport Принимает паспортные данные пользователя
      * @return Возвращает true , если пользователь удален
      * и false , если пользователь  не найден.
@@ -38,63 +41,62 @@ public class BankService {
     }
 
     /**
-     *Метод добавляет новый счет пользователю,
+     * Метод добавляет новый счет пользователю,
      * если пользователь не null и у него нет счета.
+     *
      * @param passport Принимает паспортные данные пользователя.
-     * @param account Принимает данные и проверяет, есть ли у пользователя счет.
+     * @param account  Принимает данные и проверяет, есть ли у пользователя счет.
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null && !users.get(user).contains(account)) {
-                users.get(user).add(account);
+            users.get(user).add(account);
         }
     }
 
     /**
-     *Метод находит пользователя по данным паспорта.
+     * Метод находит пользователя по данным паспорта.
+     *
      * @param passport Принимает данные паспорта.
      * @return Возвращает результат поиска.
      */
     public User findByPassport(String passport) {
-        User result = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                result = user;
-                break;
-            }
-        }
-        return result;
+        return users.keySet()
+                .stream()
+                .filter(a -> a.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
-     *Метод выполняет поиск счета , по паспорту и реквизитам пользователя.
-     * @param passport Принимает данные паспорта пользователя и проверяет,
-     * есть ли такой пользователь в сервисе.
+     * Метод выполняет поиск счета , по паспорту и реквизитам пользователя.
+     *
+     * @param passport  Принимает данные паспорта пользователя и проверяет,
+     *                  есть ли такой пользователь в сервисе.
      * @param requisite Принимает реквизиты счета и проверяет,
-     * есть ли такой счет у пользователя.
+     *                  есть ли такой счет у пользователя.
      * @return Возвращает результат поиска счета.
      */
     public Account findByRequisite(String passport, String requisite) {
-        Account result = null;
         User user = findByPassport(passport);
         if (user != null) {
-            for (Account account : users.get(user)) {
-                if (account.getRequisite().equals(requisite)) {
-                    result = account;
-                    break;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(a -> a.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
-        return result;
+        return null;
     }
 
     /**
-     *Метод позволяет переводить деньги с одного счета на другой.
-     * @param srcPassport Принимает паспортные данные пользователя, который переводит деньги.
-     * @param srcRequisite Принимает реквизиты счета с которого переводятся деньги.
-     * @param destPassport Принимает паспортные данные пользователя, который принимает деньги.
+     * Метод позволяет переводить деньги с одного счета на другой.
+     *
+     * @param srcPassport   Принимает паспортные данные пользователя, который переводит деньги.
+     * @param srcRequisite  Принимает реквизиты счета с которого переводятся деньги.
+     * @param destPassport  Принимает паспортные данные пользователя, который принимает деньги.
      * @param destRequisite Принимает рекизиты счета на который поступают деньги.
-     * @param amount Принимает данные переводимой суммы.
+     * @param amount        Принимает данные переводимой суммы.
      * @return Возвращает результат перевода.
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
@@ -111,7 +113,8 @@ public class BankService {
     }
 
     /**
-     *Метод позволяет посмотреть список счетов пользователя.
+     * Метод позволяет посмотреть список счетов пользователя.
+     *
      * @param user Принимает данные пользователя.
      * @return Возвращает данные о счете пользователя.
      */
