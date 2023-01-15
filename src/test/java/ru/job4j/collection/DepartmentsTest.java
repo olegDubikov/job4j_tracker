@@ -2,6 +2,7 @@ package ru.job4j.collection;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -46,7 +47,7 @@ class DepartmentsTest {
 
     @Test
     public void whenSortAscWithoutMissedDepartments() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1/SK1",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
@@ -74,7 +75,7 @@ class DepartmentsTest {
 
     @Test
     public void whenSortAscWithMissedDepartments() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
                 "K2/SK1",
@@ -96,7 +97,7 @@ class DepartmentsTest {
 
     @Test
     public void whenSortDescWithoutMissedDepartments() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1/SK1",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
@@ -124,7 +125,7 @@ class DepartmentsTest {
 
     @Test
     public void whenSortDescWithMissedDepartments() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1/SK1",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",
