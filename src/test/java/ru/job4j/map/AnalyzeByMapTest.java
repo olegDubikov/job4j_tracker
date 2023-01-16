@@ -13,23 +13,23 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 100),
-                                        new Subject("Lang", 70),
-                                        new Subject("Philosophy", 80)
+                                        new SubjectRec("Math", 100),
+                                        new SubjectRec("Lang", 70),
+                                        new SubjectRec("Philosophy", 80)
                                 )
                         ),
                         new Pupil("Petrov",
                                 List.of(
-                                        new Subject("Math", 80),
-                                        new Subject("Lang", 90),
-                                        new Subject("Philosophy", 70)
+                                        new SubjectRec("Math", 80),
+                                        new SubjectRec("Lang", 90),
+                                        new SubjectRec("Philosophy", 70)
                                 )
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Math", 70),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 50)
+                                        new SubjectRec("Math", 70),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 50)
                                 )
                         )
                 )
@@ -43,23 +43,23 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 100),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 80)
+                                        new SubjectRec("Math", 100),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 80)
                                 )
                         ),
                         new Pupil("Petrov",
                                 List.of(
-                                        new Subject("Math", 80),
-                                        new Subject("Lang", 90),
-                                        new Subject("Philosophy", 70)
+                                        new SubjectRec("Math", 80),
+                                        new SubjectRec("Lang", 90),
+                                        new SubjectRec("Philosophy", 70)
                                 )
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Math", 70),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 50)
+                                        new SubjectRec("Math", 70),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 50)
                                 )
                         )
                 )
@@ -77,23 +77,23 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 70),
-                                        new Subject("Lang", 90),
-                                        new Subject("Philosophy", 100)
+                                        new SubjectRec("Math", 70),
+                                        new SubjectRec("Lang", 90),
+                                        new SubjectRec("Philosophy", 100)
                                 )
                         ),
                         new Pupil("Petrov",
                                 List.of(
-                                        new Subject("Math", 60),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 60)
+                                        new SubjectRec("Math", 60),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 60)
                                 )
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Math", 80),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 50)
+                                        new SubjectRec("Math", 80),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 50)
                                 )
                         )
                 )
@@ -111,23 +111,23 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 100),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 80)
+                                        new SubjectRec("Math", 100),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 80)
                                 )
                         ),
                         new Pupil("Petrov",
                                 List.of(
-                                        new Subject("Math", 80),
-                                        new Subject("Lang", 80),
-                                        new Subject("Philosophy", 70)
+                                        new SubjectRec("Math", 80),
+                                        new SubjectRec("Lang", 80),
+                                        new SubjectRec("Philosophy", 70)
                                 )
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Math", 70),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 50)
+                                        new SubjectRec("Math", 70),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 50)
                                 )
                         )
                 )
@@ -141,23 +141,23 @@ class AnalyzeByMapTest {
                 List.of(
                         new Pupil("Ivanov",
                                 List.of(
-                                        new Subject("Math", 100),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 80)
+                                        new SubjectRec("Math", 100),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 80)
                                 )
                         ),
                         new Pupil("Petrov",
                                 List.of(
-                                        new Subject("Math", 80),
-                                        new Subject("Lang", 90),
-                                        new Subject("Philosophy", 70)
+                                        new SubjectRec("Math", 80),
+                                        new SubjectRec("Lang", 90),
+                                        new SubjectRec("Philosophy", 70)
                                 )
                         ),
                         new Pupil("Sidorov",
                                 List.of(
-                                        new Subject("Math", 70),
-                                        new Subject("Lang", 60),
-                                        new Subject("Philosophy", 50)
+                                        new SubjectRec("Math", 70),
+                                        new SubjectRec("Lang", 60),
+                                        new SubjectRec("Philosophy", 50)
                                 )
                         )
                 )

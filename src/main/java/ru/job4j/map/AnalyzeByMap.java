@@ -8,9 +8,9 @@ public class AnalyzeByMap {
         int count = 0;
         double averageScore = 0;
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectRec subjectRec : pupil.subjectRecs()) {
                 count++;
-                score += subject.score();
+                score += subjectRec.score();
                 averageScore = score / count;
             }
         }
@@ -22,9 +22,9 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double score = 0D;
             int count = 0;
-            for (Subject subject : pupil.subjects()) {
+            for (SubjectRec subjectRec : pupil.subjectRecs()) {
                 count++;
-                score += subject.score();
+                score += subjectRec.score();
             }
             list.add(new Label(pupil.name(), score / count));
         }
@@ -35,9 +35,9 @@ public class AnalyzeByMap {
         List<Label> list = new ArrayList<>();
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
-                int temp = map.getOrDefault(subject.name(), 0);
-                map.put(subject.name(), subject.score() + temp);
+            for (SubjectRec subjectRec : pupil.subjectRecs()) {
+                int temp = map.getOrDefault(subjectRec.name(), 0);
+                map.put(subjectRec.name(), subjectRec.score() + temp);
             }
         }
         for (Map.Entry<String, Integer> mapEntry : map.entrySet()) {
@@ -50,8 +50,8 @@ public class AnalyzeByMap {
         List<Label> list = new ArrayList<>();
         int score = 0;
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
-                score += subject.score();
+            for (SubjectRec subjectRec : pupil.subjectRecs()) {
+                score += subjectRec.score();
 
             }
             list.add(new Label(pupil.name(), score));
@@ -65,9 +65,9 @@ public class AnalyzeByMap {
         List<Label> list = new ArrayList<>();
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
-            for (Subject subject : pupil.subjects()) {
-                int temp = map.getOrDefault(subject.name(), 0);
-                map.put(subject.name(), subject.score() + temp);
+            for (SubjectRec subjectRec : pupil.subjectRecs()) {
+                int temp = map.getOrDefault(subjectRec.name(), 0);
+                map.put(subjectRec.name(), subjectRec.score() + temp);
             }
         }
         for (Map.Entry<String, Integer> mapEntry : map.entrySet()) {
