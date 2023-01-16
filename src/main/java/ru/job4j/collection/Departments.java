@@ -4,15 +4,15 @@ import java.util.*;
 
 public class Departments {
     public static List<String> fillGaps(List<String> deps) {
-        Set<String> tmp = new LinkedHashSet<>();
-        for (String value : deps) {
+        var linkedHashSet = new LinkedHashSet<String>();
+        for (var value : deps) {
             String start = "";
-            for (String el : value.split("/")) {
+            for (var el : value.split("/")) {
                 start += start.isEmpty() ? el : ("/" + el);
-                tmp.add(start);
+                linkedHashSet.add(start);
             }
         }
-        return new ArrayList<>(tmp);
+        return new ArrayList<>(linkedHashSet);
     }
 
     public static void sortAsc(List<String> orgs) {
