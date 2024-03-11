@@ -1,12 +1,12 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.output;
 
-public class StubOutput implements Output {
+public class Stub implements Output {
     private final StringBuilder buffer = new StringBuilder();
 
     @Override
     public void println(Object obj) {
         if (obj != null) {
-            buffer.append(obj.toString());
+            buffer.append(obj);
         } else {
             buffer.append("null");
         }
