@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.tracker.action.*;
+import ru.job4j.tracker.input.Input;
+import ru.job4j.tracker.output.Output;
+import ru.job4j.tracker.output.Stub;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,14 +16,14 @@ class StartUITest {
 
     @Test
     public void whenCreate() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
-        Input in = new StubInput(
+        Output out = new Stub();
+        MemTracker tracker = new MemTracker();
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0", "Item name", "1"}
         );
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new CreateAction(out),
-                new ExitAction(out))
+                new Create(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findAll().get(0).getName()).isEqualTo("Item name");
@@ -27,16 +31,16 @@ class StartUITest {
 
     @Test
     public void whenEditItemTestOutputIsSuccessfully() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Output out = new Stub();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
-        Input in = new StubInput(
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new EditAction(out),
-                new ExitAction(out))
+                new Replace(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -55,15 +59,15 @@ class StartUITest {
 
     @Test
     public void whenFindIdItemTestOutputIsSuccessfully() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Output out = new Stub();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
-        Input in = new StubInput(
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0", String.valueOf(one.getId()), "1"}
         );
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new FindIdAction(out),
-                new ExitAction(out))
+                new FindById(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -82,15 +86,15 @@ class StartUITest {
 
     @Test
     public void whenFindNameItemTestOutputIsSuccessfully() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Output out = new Stub();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
-        Input in = new StubInput(
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0", one.getName(), "1"}
         );
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new FindNameAction(out),
-                new ExitAction(out))
+                new FindByName(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -109,13 +113,13 @@ class StartUITest {
 
     @Test
     public void whenShowAllItemsTestOutputSuccessfully() {
-        Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        Output out = new Stub();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
-        Input in = new StubInput(new String[]{"0", "1"});
+        Input in = new ru.job4j.tracker.input.Stub(new String[]{"0", "1"});
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new ShowAction(out),
-                new ExitAction(out))
+                new FindAll(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -134,15 +138,15 @@ class StartUITest {
 
     @Test
     public void whenDelete() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item item = tracker.add(new Item("Deleted item"));
-        Output out = new StubOutput();
-        Input in = new StubInput(
+        Output out = new Stub();
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new DeleteAction(out),
-                new ExitAction(out))
+                new Delete(out),
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
@@ -150,13 +154,13 @@ class StartUITest {
 
     @Test
     public void whenExit() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
+        Output out = new Stub();
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
-        List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new ExitAction(out))
+        MemTracker tracker = new MemTracker();
+        List<UserAction> actions = new ArrayList<>(List.of(
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
@@ -168,13 +172,13 @@ class StartUITest {
 
     @Test
     public void whenInvalidExit() {
-        Output out = new StubOutput();
-        Input in = new StubInput(
+        Output out = new Stub();
+        Input in = new ru.job4j.tracker.input.Stub(
                 new String[]{"1", "0"}
         );
-        Tracker tracker = new Tracker();
-        List<UserAction> actions = new ArrayList<>(Arrays.asList(
-                new ExitAction(out))
+        MemTracker tracker = new MemTracker();
+        List<UserAction> actions = new ArrayList<>(List.of(
+                new Exit(out))
         );
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
