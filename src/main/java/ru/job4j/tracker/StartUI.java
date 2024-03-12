@@ -40,17 +40,17 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new Console();
         Input input = new Validate(output, new ru.job4j.tracker.input.Console());
-        try (Store tracker = new SqlTracker()){
-        List<UserAction> actions = List.of(
-                new Create(output),
-                new Replace(output),
-                new FindAll(output),
-                new Delete(output),
-                new FindById(output),
-                new FindByName(output),
-                new Exit(output)
-        );
-        new StartUI(output).init(input, tracker, actions);
+        try (Store tracker = new SqlTracker()) {
+            List<UserAction> actions = List.of(
+                    new Create(output),
+                    new Replace(output),
+                    new FindAll(output),
+                    new Delete(output),
+                    new FindById(output),
+                    new FindByName(output),
+                    new Exit(output)
+            );
+            new StartUI(output).init(input, tracker, actions);
         } catch (Exception e) {
             e.printStackTrace();
         }
