@@ -40,7 +40,7 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new Console();
         Input input = new Validate(output, new ru.job4j.tracker.input.Console());
-        try (Store tracker = new SqlTracker()) {
+/*        try (Store tracker = new SqlTracker()) {
             List<UserAction> actions = List.of(
                     new Create(output),
                     new Replace(output),
@@ -53,6 +53,6 @@ public class StartUI {
             new StartUI(output).init(input, tracker, actions);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
