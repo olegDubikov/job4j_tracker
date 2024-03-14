@@ -7,10 +7,10 @@ import ru.job4j.tracker.Store;
 
 import java.util.List;
 
-public class FindByName implements UserAction {
+public class FindByNameAction implements UserAction {
     private final Output out;
 
-    public FindByName(Output out) {
+    public FindByNameAction(Output out) {
         this.out = out;
     }
 
