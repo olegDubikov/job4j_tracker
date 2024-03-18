@@ -3,17 +3,38 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>ru.job4j</groupId>
     <artifactId>junior</artifactId>
     <packaging>jar</packaging>
     <version>2.0</version>
     <name>tracker</name>
     <url>http://job4j.ru/</url>
+
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>test</id>
+            <properties>
+                <liquibase.config>src/main/resources/db/liquibase_test.properties</liquibase.config>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <liquibase.config>src/main/resources/db/liquibase.properties</liquibase.config>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -54,6 +75,12 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>4.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.222</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -97,8 +124,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>16</source>
-                    <target>16</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -153,7 +180,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <release>11</release>
+                            <release>17</release>
                         </configuration>
                     </execution>
                 </executions>
@@ -163,8 +190,17 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.23.1</version>
                 <configuration>
-                    <propertyFile>src/main/resources/db/liquibase.properties</propertyFile>
+                    <propertyFile>${liquibase.config}</propertyFile>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>clearCheckSums</goal>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <pluginManagement>
